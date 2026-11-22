@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Invito al laboratorio L'atelier della luce: mercoledì 25 novembre, 15:00-18:00, I.C. Madre Teresa di Calcutta, Belpasso.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>L'atelier della luce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,100;1,9..144,300..800,100&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&family=Caveat:wght@500;700&display=swap">
+<style>
+/* Layout: a living night sky opens the page; below it the invitation unfolds like a walk
+   from the village up into the swirls: intro, programme as a path of lit windows, an 11-star game, practical notes.
+   Deliberately single-theme: the whole page lives inside the night of the painting. */
+:root{
+  --night:#0a1538;      /* fondo: il blu profondo del cielo */
+  --deep:#12245f;       /* superfici */
+  --swirl:#3a64b8;      /* il blu delle spirali */
+  --mist:#a9c8ec;       /* azzurro chiaro, testo secondario */
+  --star:#f4cd4f;       /* giallo stella, accento */
+  --ember:#e89a2e;      /* arancio della luna e delle finestre */
+  --cypress:#081109;    /* nero-verde del cipresso */
+  --ink:#f3f0e4;        /* testo principale */
+  --line:rgba(169,200,236,.22);
+  --f-display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --f-body:"Nunito Sans", "Segoe UI", system-ui, sans-serif;
+  --f-hand:"Caveat", "Segoe Print", "Comic Sans MS", cursive;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--night);color:var(--ink);font-family:var(--f-body);font-size:1.05rem;line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--star)}
+:focus-visible{outline:2px solid var(--star);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;text-wrap:balance;margin:0;font-variation-settings:"SOFT" 100}
+.eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);font-weight:800}
+.hand{font-family:var(--f-hand);color:var(--star);font-size:1.6rem;line-height:1.1}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--night)}
+#sky{position:absolute;inset:0;width:100%;height:100%;z-index:-3;display:block;touch-action:pan-y;cursor:crosshair}
+.land{position:absolute;left:0;right:0;bottom:0;width:100%;height:68%;z-index:-2;pointer-events:none}
+.scrim{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,21,56,0) 40%,rgba(10,21,56,.3) 62%,rgba(10,21,56,.6) 85%,var(--night) 100%)}
+.hero-inner{padding-block:clamp(170px,22vw,270px) 24px;display:grid;gap:22px;pointer-events:none}
+.hero-inner > *{pointer-events:auto}
+.hero .eyebrow{color:var(--star)}
+.title{font-size:clamp(2.9rem,9vw,6.6rem);line-height:.92;letter-spacing:-.02em;font-weight:400}
+.title em{font-style:italic;color:var(--star);font-weight:600;
+  text-shadow:0 0 28px rgba(244,205,79,.45),0 0 2px rgba(244,205,79,.6)}
+.lede{max-width:56ch;font-size:1.12rem;color:#dfe6f3;margin:0}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.facts li{display:flex;gap:8px;align-items:center;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(18,36,95,.6);backdrop-filter:blur(6px);font-weight:600;font-size:.95rem}
+.facts svg{flex:none}
+.down{justify-self:start;display:inline-flex;align-items:center;gap:10px;margin-top:4px;color:var(--star);text-decoration:none;font-weight:800;font-size:.95rem;letter-spacing:.04em}
+.down svg{animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+@media (prefers-reduced-motion:reduce){.down svg{animation:none}}
+.hint{font-family:var(--f-hand);font-size:1.3rem;color:var(--mist);margin:0;display:flex;gap:8px;align-items:center}
+
+.count{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.count .cell{min-width:74px;padding:10px 12px;border-radius:14px;background:rgba(10,21,56,.7);border:1px solid var(--line);text-align:center}
+.count b{display:block;font-family:var(--f-display);font-size:2rem;line-height:1;font-weight:500;color:var(--star);font-variant-numeric:tabular-nums}
+.count span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}
+.count-msg{align-self:center;color:var(--mist);font-size:.95rem;max-width:22ch;line-height:1.35}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:999px;font-weight:800;font-size:.98rem;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--f-body);transition:transform .2s, box-shadow .2s}
+.btn-primary{background:var(--star);color:var(--night);box-shadow:0 0 0 0 rgba(244,205,79,.5)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px -6px rgba(244,205,79,.6)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--star);color:var(--star)}
+
+/* ---------- SECTIONS ---------- */
+section{padding-block:clamp(56px,9vw,104px)}
+.sec-head{display:grid;gap:10px;margin-bottom:36px;max-width:62ch}
+.sec-head h2{font-size:clamp(2rem,5vw,3.2rem);line-height:1.02}
+.sec-head p{margin:0;color:#cfd9ec}
+
+/* intro: three ingredients */
+.ingredients{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.ing{padding:26px 24px 24px;border-radius:22px;background:linear-gradient(160deg,var(--deep),rgba(18,36,95,.35));border:1px solid var(--line);display:grid;gap:10px;align-content:start;position:relative;overflow:hidden}
+.ing h3{font-size:1.45rem}
+.ing p{margin:0;color:#cfd9ec;font-size:.98rem}
+.ing .glyph{width:54px;height:54px}
+.quote{margin:0;padding:0;display:grid;gap:6px;max-width:44ch}
+.quote p{margin:0;font-family:var(--f-hand);font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.15;color:var(--star)}
+.quote cite{font-style:normal;color:var(--mist);font-size:.9rem}
+
+/* programme */
+.prog{background:linear-gradient(180deg,var(--night),#0d1b4a 40%,var(--night))}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:14px;position:relative}
+.timeline::before{content:"";position:absolute;left:83px;top:10px;bottom:10px;width:2px;
+  background:repeating-linear-gradient(180deg,var(--star) 0 6px,transparent 6px 14px);opacity:.45}
+.step details{border-radius:18px;background:rgba(18,36,95,.55);border:1px solid var(--line);transition:background .3s,border-color .3s}
+.step details[open]{background:rgba(26,48,118,.75);border-color:rgba(244,205,79,.45)}
+.step summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:62px 22px 1fr auto;gap:0 18px;align-items:center;padding:18px 20px}
+.step summary::-webkit-details-marker{display:none}
+.time{font-family:var(--f-display);font-size:1.2rem;font-variant-numeric:tabular-nums;color:var(--star);text-align:right}
+.dot{width:16px;height:16px;border-radius:50%;background:var(--night);border:2px solid var(--star);justify-self:center;position:relative;z-index:1;transition:background .3s, box-shadow .3s}
+details[open] .dot{background:var(--star);box-shadow:0 0 0 6px rgba(244,205,79,.15),0 0 22px rgba(244,205,79,.8)}
+.s-title{display:grid;gap:2px;min-width:0}
+.s-title strong{font-family:var(--f-display);font-weight:500;font-size:1.3rem;line-height:1.2}
+.s-title small{color:var(--mist);font-size:.93rem}
+.chev{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .3s}
+details[open] .chev{transform:rotate(45deg);border-color:var(--star)}
+.s-body{padding:0 22px 22px calc(20px + 62px + 18px + 22px + 18px);color:#d7e0f0}
+.s-body ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
+.s-body li::marker{color:var(--star)}
+.note{margin-top:18px;color:var(--mist);font-size:.88rem}
+
+/* 11 stars game */
+.game{display:grid;gap:22px}
+.starfield{position:relative;width:100%;max-width:100%;aspect-ratio:16/7;border-radius:26px;overflow:hidden;border:1px solid var(--line);
+  background:radial-gradient(ellipse at 30% 30%,#2c4f9e 0%,transparent 55%),radial-gradient(ellipse at 75% 60%,#1f3c86 0%,transparent 50%),linear-gradient(180deg,#14296c,#0a1538)}
+.starfield canvas{position:absolute;inset:0;width:100%;height:100%}
+.s-btn{position:absolute;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;border:0;background:transparent;cursor:pointer;padding:0;display:grid;place-items:center}
+.s-btn i{display:block;width:14px;height:14px;border-radius:50%;background:#e9e4c8;opacity:.55;box-shadow:0 0 6px rgba(255,255,255,.4);transition:all .5s cubic-bezier(.2,1.4,.4,1)}
+.s-btn:hover i{opacity:.9;transform:scale(1.2)}
+.s-btn[aria-pressed="true"] i{width:22px;height:22px;opacity:1;background:radial-gradient(circle,#fffbe6 0 30%,var(--star) 55%,var(--ember) 100%);
+  box-shadow:0 0 0 7px rgba(244,205,79,.22),0 0 0 15px rgba(244,205,79,.1),0 0 40px 10px rgba(244,205,79,.55)}
+.s-btn[aria-pressed="true"]{animation:pulse 3.2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.08)}}
+@media (prefers-reduced-motion:reduce){.s-btn[aria-pressed="true"]{animation:none}}
+.reveal{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:center;min-height:96px;padding:20px 24px;border-radius:20px;background:rgba(18,36,95,.55);border:1px solid var(--line)}
+.reveal .n{font-family:var(--f-display);font-size:2.6rem;line-height:1;color:var(--star);font-variant-numeric:tabular-nums;grid-row:span 2}
+.reveal strong{font-family:var(--f-display);font-weight:500;font-size:1.45rem}
+.reveal p{margin:0;color:#cfd9ec}
+.progress{display:flex;gap:6px;flex-wrap:wrap;align-items:center;color:var(--mist);font-size:.9rem}
+.progress i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--star);display:inline-block}
+.progress i.on{background:var(--star)}
+.reset{margin-left:auto;background:none;border:0;color:var(--mist);text-decoration:underline;cursor:pointer;font:inherit}
+
+#idea{padding-top:32px}
+/* practical */
+.practical{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+.card{padding:28px;border-radius:24px;border:1px solid var(--line);background:rgba(18,36,95,.45)}
+.card h3{font-size:1.6rem;margin-bottom:16px}
+dl.info{margin:0;display:grid;grid-template-columns:auto 1fr;gap:14px 20px}
+dl.info dt{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);font-weight:800;padding-top:4px}
+dl.info dd{margin:0;font-weight:600;min-width:0}
+dl.info dd span{display:block;font-weight:400;color:#cfd9ec;font-size:.94rem}
+.bag{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.bag label{display:flex;gap:14px;align-items:flex-start;padding:10px 8px;border-radius:12px;cursor:pointer}
+.bag label:hover{background:rgba(58,100,184,.18)}
+.bag input{appearance:none;flex:none;width:24px;height:24px;margin:1px 0 0;border-radius:50%;border:2px solid var(--star);display:grid;place-items:center;cursor:pointer;background:transparent}
+.bag input::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--star);transform:scale(0);transition:transform .25s cubic-bezier(.2,1.6,.4,1);box-shadow:0 0 12px var(--star)}
+.bag input:checked::after{transform:scale(1)}
+.bag input:checked + span{color:var(--mist);text-decoration:line-through;text-decoration-color:rgba(244,205,79,.6)}
+.bag small{display:block;color:var(--mist);font-size:.86rem}
+.bag-intro{margin:-6px 0 14px;color:#cfd9ec;font-size:.94rem}
+.sw{display:flex;gap:5px;margin-top:5px}
+.sw i{width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(243,240,228,.55)}
+.practical > .card:first-child{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px)}
+.bag-count{margin:14px 0 0;color:var(--mist);font-size:.9rem}
+
+footer{padding-block:64px 80px;border-top:1px solid var(--line);text-align:left}
+footer .sign{font-family:var(--f-hand);font-size:2.4rem;color:var(--star);line-height:1}
+footer p{margin:6px 0 0;color:var(--mist)}
+.credit{font-size:.82rem;margin-top:28px !important}
+
+@media (max-width:760px){
+  .hero-inner{padding-top:200px}
+  .scrim{background:linear-gradient(180deg,rgba(10,21,56,0) 18%,rgba(10,21,56,.7) 34%,rgba(10,21,56,.85) 70%,var(--night) 100%)}
+  .practical{grid-template-columns:1fr}
+  .practical > .card:first-child{position:static}
+  .starfield{aspect-ratio:4/3.4}
+  .timeline::before{left:61px}
+  .step summary{grid-template-columns:48px 16px 1fr auto;gap:0 12px;padding:16px 14px}
+  .time{font-size:1.02rem}
+  .dot{width:13px;height:13px}
+  .s-body{padding:0 16px 18px 16px}
+  .s-title strong{font-size:1.12rem}
+  .count .cell{min-width:64px}
+}
+</style>
+
+</head>
+<body>
+<header class="hero" id="top">
+  <canvas id="sky" aria-label="Cielo animato ispirato alla Notte stellata di Van Gogh. Muovi il dito o il mouse per creare vortici, tocca per accendere una stella." role="img"></canvas>
+  <svg class="land" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="hill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1a2f6b"/><stop offset="1" stop-color="#0a1538"/></linearGradient>
+      <linearGradient id="cyp" x1="0" x2="1"><stop offset="0" stop-color="#0d1f12"/><stop offset=".6" stop-color="#081109"/><stop offset="1" stop-color="#14301b"/></linearGradient>
+    </defs>
+    <!-- colline lontane -->
+    <path d="M0 330 C140 300 240 270 380 290 C520 310 600 250 760 262 C900 272 1000 300 1120 280 C1260 258 1360 250 1440 262 L1440 520 L0 520 Z" fill="#1b3474" opacity=".85"/>
+    <path d="M0 380 C180 350 300 360 460 350 C620 340 760 372 920 362 C1080 352 1240 330 1440 345 L1440 520 L0 520 Z" fill="url(#hill)"/>
+    <!-- il paese -->
+    <g fill="#0b163d">
+      <rect x="560" y="352" width="44" height="34"/><polygon points="556,352 582,334 608,352"/>
+      <rect x="612" y="358" width="54" height="30"/><polygon points="608,358 639,340 670,358"/>
+      <rect x="676" y="300" width="22" height="90"/><polygon points="672,302 687,228 702,302"/>
+      <rect x="700" y="346" width="70" height="44"/><polygon points="696,346 735,326 774,346"/>
+      <rect x="778" y="356" width="48" height="34"/><polygon points="774,356 802,338 830,356"/>
+      <rect x="836" y="352" width="60" height="38"/><polygon points="832,352 866,332 900,352"/>
+      <rect x="904" y="360" width="46" height="30"/><polygon points="900,360 927,344 954,360"/>
+      <rect x="960" y="356" width="56" height="34"/><polygon points="956,356 988,338 1020,356"/>
+      <rect x="470" y="362" width="80" height="30"/><polygon points="466,362 510,344 554,362"/>
+      <rect x="1026" y="364" width="62" height="28"/><polygon points="1022,364 1057,348 1092,364"/>
+    </g>
+    <g fill="#f4cd4f" class="windows">
+      <rect x="572" y="364" width="7" height="8"/><rect x="630" y="368" width="7" height="8"/><rect x="648" y="368" width="7" height="8"/>
+      <rect x="716" y="358" width="7" height="8"/><rect x="744" y="358" width="7" height="8"/><rect x="792" y="366" width="7" height="8"/>
+      <rect x="852" y="364" width="7" height="8"/><rect x="876" y="364" width="7" height="8"/><rect x="920" y="370" width="7" height="8"/>
+      <rect x="976" y="366" width="7" height="8"/><rect x="996" y="366" width="7" height="8"/><rect x="494" y="372" width="7" height="8"/>
+      <rect x="1050" y="374" width="7" height="8"/>
+    </g>
+    <path d="M0 420 C200 400 420 412 640 404 C860 396 1100 418 1440 400 L1440 520 L0 520 Z" fill="#0a1538"/>
+    <!-- il cipresso -->
+    <g transform="translate(1020 0)"><path fill="url(#cyp)" d="M196 520 C150 470 140 420 160 370 C142 340 150 300 172 268 C156 236 168 196 190 168 C178 132 196 96 214 70 C220 40 228 18 236 0 C246 24 252 50 256 80 C276 110 286 150 272 182 C292 214 296 254 278 286 C300 322 302 366 282 398 C300 440 290 486 262 520 Z"/>
+    <path fill="none" stroke="#1f4527" stroke-width="3" stroke-linecap="round" opacity=".8" d="M226 60 C214 120 238 160 216 220 C200 270 236 300 214 360 C200 410 236 450 222 510 M244 90 C258 140 236 190 258 240 C270 290 248 330 264 390"/></g>
+  </svg>
+  <div class="scrim"></div>
+
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Laboratorio per docenti della scuola dell'infanzia</p>
+    <h1 class="title">L'atelier<br>della <em>luce</em></h1>
+    <p class="lede">Un pomeriggio dentro la <i>Notte stellata</i> di Van Gogh: ambienti immersivi, albi illustrati ed esperimenti STEAM da portare in sezione con i vostri bambini.</p>
+    <ul class="facts">
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Mercoledì 25 novembre</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>15:00 – 18:00</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>I.C. Madre Teresa di Calcutta, Belpasso</li>
+    </ul>
+    <div class="count" id="count" aria-live="polite">
+      <div class="cell"><b id="cd-d">0</b><span>giorni</span></div>
+      <div class="cell"><b id="cd-h">00</b><span>ore</span></div>
+      <div class="cell"><b id="cd-m">00</b><span>minuti</span></div>
+      <div class="cell"><b id="cd-s">00</b><span>secondi</span></div>
+      <p class="count-msg" id="cd-msg">al momento in cui si accendono le luci dell'atelier</p>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=L%27atelier%20della%20luce&amp;dates=20261125T140000Z%2F20261125T170000Z&amp;ctz=Europe%2FRome&amp;details=Laboratorio%20immersivo%20ispirato%20alla%20Notte%20stellata%20di%20Van%20Gogh%3A%20albi%20illustrati%2C%20esperimenti%20STEAM%20e%20tecnologia%20per%20la%20scuola%20dell%27infanzia.%20A%20cura%20della%20maestra%20Nunzia%20Span%C3%B2.&amp;location=Istituto%20Comprensivo%20Madre%20Teresa%20di%20Calcutta%2C%20Belpasso%20(CT)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Salva nel calendario</a>
+      <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Istituto+Comprensivo+Madre+Teresa+di+Calcutta+Belpasso">Come arrivare</a>
+      <a class="btn btn-ghost" href="#programma">Il programma</a>
+    </div>
+    <p class="hint"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 14c2-6 8-8 12-5s2 8-2 8-4-4-1-5"/></svg>muovi il dito nel cielo e tocca per accendere una stella</p>
+    <a class="down" href="#idea">Scopri il laboratorio <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+  </div>
+</header>
+
+<main>
+  <section id="idea">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">L'idea</p>
+        <h2>Entrare in un quadro, uscirne con un percorso didattico</h2>
+        <p>Il cielo che Vincent dipinse dalla finestra di Saint-Rémy nel giugno 1889 diventa uno spazio da abitare. Lo attraverseremo come lo attraverserebbero i bambini, con il corpo, con le storie e con le domande, e poi ci fermeremo a capire come riportare tutto questo in classe.</p>
+      </div>
+      <blockquote class="quote">
+        <p>«Spesso mi sembra che la notte sia ancora più viva e riccamente colorata del giorno.»</p>
+        <cite>Vincent van Gogh, lettera al fratello Theo, 1888</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="prog" id="programma">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Il programma</p>
+        <h2>Tre ore, dal tramonto alle stelle</h2>
+        <p>Tocca ogni tappa per scoprire cosa si farà.</p>
+      </div>
+      <ol class="timeline">
+        <li class="step"><details open>
+          <summary><span class="time">15:00</span><span class="dot"></span><span class="s-title"><strong>Si spengono le luci</strong><small>Accoglienza e ingresso nell'ambiente immersivo</small></span><span class="chev" aria-hidden="true">+</span></summary>
+          <div class="s-body"><ul><li>Ingresso nel «cielo stellato» allestito nell'aula</li><li>Esplorazione libera, come la vivrebbero i bambini</li><li>Cosa osserviamo, cosa proviamo, cosa ci chiediamo</li></ul></div>
+        </details></li>
+        <li class="step"><details>
+          <summary><span class="time">15:30</span><span class="dot"></span><span class="s-title"><strong>La notte raccontata</strong><small>Albi illustrati e tecniche di lettura</small></span><span class="chev" aria-hidden="true">+</span></summary>
+          <div class="s-body"><ul><li>Lettura animata di un albo illustrato a tema notte e stelle</li><li>Come leggere ad alta voce ai più piccoli: voce, pause, tavole</li><li>Dalla storia alla domanda: trasformare la curiosità in un'ipotesi da verificare</li></ul></div>
+        </details></li>
+        <li class="step"><details>
+          <summary><span class="time">16:00</span><span class="dot"></span><span class="s-title"><strong>Luce e ombra</strong><small>Il laboratorio STEAM</small></span><span class="chev" aria-hidden="true">+</span></summary>
+          <div class="s-body"><ul><li>Esperimenti con torce, ombre, trasparenze e riflessi</li><li>I colori della notte: mescolare blu e giallo come Vincent</li><li>Lavoro in piccoli gruppi a stazioni, con materiali di recupero</li></ul></div>
+        </details></li>
+        <li class="step"><details>
+          <summary><span class="time">16:50</span><span class="dot"></span><span class="s-title"><strong>Pausa sotto il cielo</strong><small>Un caffè e due chiacchiere</small></span><span class="chev" aria-hidden="true">+</span></summary>
+          <div class="s-body"><ul><li>Un momento per scambiarsi idee ed esperienze tra colleghe</li></ul></div>
+        </details></li>
+        <li class="step"><details>
+          <summary><span class="time">17:05</span><span class="dot"></span><span class="s-title"><strong>Costellazioni digitali</strong><small>Tecnologia per l'infanzia</small></span><span class="chev" aria-hidden="true">+</span></summary>
+          <div class="s-body"><ul><li>Tavolo luminoso, proiezioni e strumenti digitali semplici</li><li>Come usare la tecnologia in modo creativo e misurato a 3-6 anni</li></ul></div>
+        </details></li>
+        <li class="step"><details>
+          <summary><span class="time">17:35</span><span class="dot"></span><span class="s-title"><strong>Riportare il cielo in sezione</strong><small>Restituzione e progettazione</small></span><span class="chev" aria-hidden="true">+</span></summary>
+          <div class="s-body"><ul><li>Rilettura dell'esperienza e dei suoi passaggi</li><li>Idee per adattare l'atelier alla propria scuola</li><li>Domande, dubbi e saluti</li></ul></div>
+        </details></li>
+      </ol>
+      <p class="note">Gli orari delle singole tappe sono indicativi.</p>
+    </div>
+  </section>
+
+  <section id="stelle">
+    <div class="wrap game">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow">Un piccolo gioco prima di incontrarci</p>
+        <h2>Nella <i>Notte stellata</i> brillano undici stelle</h2>
+        <p>Accendile una a una: ognuna custodisce una parola dell'atelier.</p>
+      </div>
+      <div class="starfield" id="field"><canvas id="fieldcv" aria-hidden="true"></canvas></div>
+      <div class="reveal" id="reveal" aria-live="polite">
+        <span class="n" id="rv-n">0</span>
+        <strong id="rv-w">Il cielo è ancora spento</strong>
+        <p id="rv-t">Tocca un punto luminoso per cominciare.</p>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+  </section>
+
+  <section id="info">
+    <div class="wrap practical">
+      <div class="card">
+        <h3>Informazioni</h3>
+        <dl class="info">
+          <dt>Quando</dt><dd>Mercoledì 25 novembre 2026<span>dalle 15:00 alle 18:00</span></dd>
+          <dt>Dove</dt><dd>Istituto Comprensivo Madre Teresa di Calcutta<span>Belpasso (CT) · <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Istituto+Comprensivo+Madre+Teresa+di+Calcutta+Belpasso">apri la mappa</a></span></dd>
+          <dt>Per chi</dt><dd>Docenti iscritte al laboratorio<span>scuola dell'infanzia</span></dd>
+          <dt>A cura di</dt><dd>Maestra Nunzia Spanò</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <h3>Materiale da portare</h3>
+        <p class="bag-intro">Spunta ogni cosa mentre prepari la borsa: la lista resta salvata su questo dispositivo.</p>
+        <ul class="bag" id="bag">
+          <li><label><input type="checkbox" id="mat-1"><span>Pennarello indelebile nero e giallo<span class="sw"><i style="background:#111"></i><i style="background:#f4cd4f"></i></span></span></label></li>
+          <li><label><input type="checkbox" id="mat-2"><span>Torcia</span></label></li>
+          <li><label><input type="checkbox" id="mat-3"><span>Salviette per le mani</span></label></li>
+          <li><label><input type="checkbox" id="mat-4"><span>Scatola di pennarelli a punta grossa</span></label></li>
+          <li><label><input type="checkbox" id="mat-5"><span>Cucitrice</span></label></li>
+          <li><label><input type="checkbox" id="mat-6"><span>Puntine</span></label></li>
+          <li><label><input type="checkbox" id="mat-7"><span>Colla stick</span></label></li>
+          <li><label><input type="checkbox" id="mat-8"><span>Forbicine</span></label></li>
+          <li><label><input type="checkbox" id="mat-9"><span>Carta velina verde, gialla, blu e rossa<span class="sw"><i style="background:#2e9e4f"></i><i style="background:#f4cd4f"></i><i style="background:#2f58ad"></i><i style="background:#d8402f"></i></span></span></label></li>
+          <li><label><input type="checkbox" id="mat-10"><span>Carta da forno</span></label></li>
+          <li><label><input type="checkbox" id="mat-11"><span>Scatola trasparente rettangolare<small>misure 35 × 24 × 10 cm</small></span></label></li>
+        </ul>
+        <p class="bag-count" id="bag-count">0 su 11 pronti</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="sign">Vi aspetto sotto il cielo stellato.</p>
+    <p>Maestra Nunzia Spanò · L'atelier della luce</p>
+    <p class="credit">Ispirato a <i>La notte stellata</i> di Vincent van Gogh (1889), conservato al Museum of Modern Art di New York.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------------- countdown ---------------- */
+  const start = new Date('2026-11-25T15:00:00+01:00').getTime();
+  const end = new Date('2026-11-25T18:00:00+01:00').getTime();
+  const $ = id => document.getElementById(id);
+  const pad = n => String(n).padStart(2,'0');
+  function tick(){
+    const now = Date.now();
+    const cells = document.querySelectorAll('#count .cell');
+    if(now >= start){
+      cells.forEach(c => c.hidden = true);
+      $('cd-msg').style.maxWidth = 'none';
+      $('cd-msg').textContent = now < end ? 'L\'atelier è aperto in questo momento: le luci sono accese.' : 'Grazie a tutte per aver attraversato la notte insieme.';
+      return false;
+    }
+    let s = Math.floor((start-now)/1000);
+    const d = Math.floor(s/86400); s -= d*86400;
+    const h = Math.floor(s/3600); s -= h*3600;
+    const m = Math.floor(s/60); s -= m*60;
+    $('cd-d').textContent = d; $('cd-h').textContent = pad(h); $('cd-m').textContent = pad(m); $('cd-s').textContent = pad(s);
+    return true;
+  }
+  if(tick()) setInterval(tick, 1000);
+
+  /* ---------------- painted sky ---------------- */
+  const cv = $('sky'), ctx = cv.getContext('2d');
+  const trail = document.createElement('canvas'), tctx = trail.getContext('2d');
+  let W=0, H=0, dpr=1, parts=[], t=0, pointer=null;
+  const BLUES = ['#1d3a8a','#2f58ad','#4a78c7','#7da7dc','#b6d3f0','#24479a','#5f8fd2'];
+  const GOLD = ['#f4cd4f','#f7e08a','#e8b93a','#fff1b8'];
+  let stars = [
+    [.06,.12,1],[.17,.25,.8],[.29,.09,.9],[.4,.2,.7],[.52,.1,.85],[.63,.22,.8],
+    [.73,.07,.7],[.47,.36,.6],[.22,.4,.65],[.94,.34,.75],[.6,.42,.55]
+  ];
+  const baseStars = stars.length;
+  const moon = {x:.87, y:.14};
+  const vortices = [{x:.38,y:.27,r:.15,s:1},{x:.56,y:.33,r:.09,s:-1},{x:.2,y:.2,r:.1,s:1},{x:.75,y:.3,r:.11,s:1}];
+
+  function resize(){
+    const r = cv.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio||1, 2);
+    W = r.width; H = r.height;
+    [cv,trail].forEach(c => { c.width = Math.round(W*dpr); c.height = Math.round(H*dpr); });
+    ctx.setTransform(dpr,0,0,dpr,0,0); tctx.setTransform(dpr,0,0,dpr,0,0);
+    tctx.fillStyle = '#0a1538'; tctx.fillRect(0,0,W,H);
+    const n = Math.round(Math.min(1100, W*H/700));
+    parts = Array.from({length:n}, spawn);
+  }
+  function spawn(){
+    return {x:Math.random()*W, y:Math.random()*H*0.78, life:60+Math.random()*140, w:1.6+Math.random()*2.6, c:null};
+  }
+  function field(x,y){
+    let vx = 1, vy = Math.sin(x*0.006 + t*0.35)*0.55 + Math.cos(y*0.012 - t*0.25)*0.35;
+    const R0 = Math.max(W, H*1.4);
+    const list = pointer ? vortices.concat([pointer]) : vortices;
+    for(const v of list){
+      const dx = x - v.x*W, dy = y - v.y*H, R = v.r*R0;
+      const w = Math.exp(-(dx*dx+dy*dy)/(R*R));
+      vx += (-dy/R)*w*3.2*v.s; vy += (dx/R)*w*3.2*v.s;
+    }
+    const m = Math.hypot(vx,vy)||1;
+    return [vx/m, vy/m];
+  }
+  function colorFor(p){
+    for(const s of stars){
+      const dx=p.x-s[0]*W, dy=p.y-s[1]*H;
+      if(dx*dx+dy*dy < (46*s[2])**2) return GOLD[(Math.random()*GOLD.length)|0];
+    }
+    const dx=p.x-moon.x*W, dy=p.y-moon.y*H;
+    if(dx*dx+dy*dy < 80*80) return GOLD[(Math.random()*GOLD.length)|0];
+    return BLUES[(Math.random()*BLUES.length)|0];
+  }
+  function step(){
+    t += 0.008;
+    tctx.fillStyle = 'rgba(10,21,56,0.035)';
+    tctx.fillRect(0,0,W,H);
+    tctx.lineCap = 'round';
+    for(const p of parts){
+      if(!p.c) p.c = colorFor(p);
+      const [fx,fy] = field(p.x,p.y);
+      const nx = p.x + fx*1.6, ny = p.y + fy*1.6;
+      tctx.strokeStyle = p.c; tctx.globalAlpha = 0.5; tctx.lineWidth = p.w;
+      tctx.beginPath(); tctx.moveTo(p.x,p.y); tctx.lineTo(nx,ny); tctx.stroke();
+      p.x = nx; p.y = ny; p.life--;
+      if(p.life<0 || p.x>W+10 || p.x<-10 || p.y<-10 || p.y>H*0.8) Object.assign(p, spawn());
+    }
+    tctx.globalAlpha = 1;
+  }
+  function drawStar(x,y,s,ph){
+    const R = 34*s*(1+0.06*Math.sin(ph));
+    let g = ctx.createRadialGradient(x,y,0,x,y,R*1.6);
+    g.addColorStop(0,'rgba(255,248,210,.95)'); g.addColorStop(.25,'rgba(244,205,79,.7)');
+    g.addColorStop(.6,'rgba(232,185,58,.18)'); g.addColorStop(1,'rgba(232,185,58,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x,y,R*1.6,0,Math.PI*2); ctx.fill();
+    ctx.lineWidth = 2.2; ctx.setLineDash([7,6]);
+    for(let i=1;i<=3;i++){
+      ctx.strokeStyle = `rgba(247,224,138,${0.5-i*0.12})`;
+      ctx.lineDashOffset = (i%2?1:-1)*ph*6;
+      ctx.beginPath(); ctx.arc(x,y,R*0.35*i+4,0,Math.PI*2); ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#fffbe6'; ctx.beginPath(); ctx.arc(x,y,R*0.16+1.5,0,Math.PI*2); ctx.fill();
+  }
+  function drawMoon(){
+    const x = moon.x*W, y = moon.y*H, R = Math.max(26, Math.min(W,H)*0.07);
+    let g = ctx.createRadialGradient(x,y,R*0.5,x,y,R*2.6);
+    g.addColorStop(0,'rgba(244,190,70,.8)'); g.addColorStop(.45,'rgba(232,154,46,.28)'); g.addColorStop(1,'rgba(232,154,46,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x,y,R*2.6,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#f6c94a'; ctx.beginPath(); ctx.arc(x,y,R,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#e89a2e'; ctx.beginPath(); ctx.arc(x+R*0.42,y-R*0.18,R*0.86,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#ffe9a0'; ctx.beginPath(); ctx.arc(x-R*0.12,y+R*0.05,R*0.62,Math.PI*0.55,Math.PI*1.45); ctx.fill();
+  }
+  function compose(){
+    ctx.drawImage(trail,0,0,W,H);
+    stars.forEach((s,i) => drawStar(s[0]*W, s[1]*H, s[2]*(W<600?0.7:1), t*3+i));
+    drawMoon();
+  }
+  function loop(){
+    if(pointer && performance.now() > pointer.until) pointer = null;
+    step(); compose();
+    requestAnimationFrame(loop);
+  }
+  resize();
+  if(reduce){ for(let i=0;i<260;i++) step(); compose(); }
+  else { for(let i=0;i<90;i++) step(); loop(); }
+  let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { resize(); if(reduce){ for(let i=0;i<260;i++) step(); compose(); } }, 150); });
+
+  function rel(e){ const r = cv.getBoundingClientRect(); return [(e.clientX-r.left)/r.width, (e.clientY-r.top)/r.height]; }
+  cv.addEventListener('pointermove', e => {
+    const [x,y] = rel(e);
+    pointer = {x, y, r:.07, s:1.4, until:performance.now()+900};
+  });
+  cv.addEventListener('pointerdown', e => {
+    const [x,y] = rel(e);
+    if(y > 0.75) return;
+    if(stars.length >= baseStars + 12) stars.splice(baseStars,1);
+    stars.push([x,y,.5+Math.random()*.4]);
+    parts.forEach(p => { const dx=p.x-x*W, dy=p.y-y*H; if(dx*dx+dy*dy<70*70) p.c=null; });
+    if(reduce) compose();
+  });
+
+  /* ---------------- eleven stars game ---------------- */
+  const WORDS = [
+    ['Luce','Il filo che lega tutto l\'atelier: la cerchiamo, la spostiamo, la catturiamo.'],
+    ['Buio','Non fa paura quando diventa lo sfondo su cui le cose brillano.'],
+    ['Ombra','Cresce, si allunga, cambia forma: il primo esperimento dei bambini.'],
+    ['Riflesso','Specchi e superfici lucide moltiplicano le stelle.'],
+    ['Colore','Il blu e il giallo di Vincent, da mescolare con le mani.'],
+    ['Storia','Un albo illustrato apre la porta del quadro.'],
+    ['Domanda','«Perché la luna cambia forma?» Ogni scoperta comincia così.'],
+    ['Esperimento','Provare, sbagliare, riprovare: la scienza a misura di bambino.'],
+    ['Arte','La A di STEAM: guardare un quadro e imparare a vedere.'],
+    ['Corpo','Nell\'ambiente immersivo si impara anche muovendosi.'],
+    ['Meraviglia','Quello che proveremo noi, e che porteremo ai bambini.']
+  ];
+  const POS = [[8,22],[19,46],[30,16],[41,38],[52,18],[63,42],[72,14],[48,66],[24,74],[90,58],[66,78]];
+  const field2 = $('field'), fcv = $('fieldcv'), fctx = fcv.getContext('2d');
+  const lit = new Set();
+  try{ JSON.parse(localStorage.getItem('atelier-stelle')||'[]').forEach(i => lit.add(i)); }catch(e){}
+  const btns = POS.map((p,i) => {
+    const b = document.createElement('button');
+    b.className = 's-btn'; b.type = 'button'; b.id = 'stella-'+(i+1);
+    b.style.left = p[0]+'%'; b.style.top = p[1]+'%';
+    b.setAttribute('aria-label', 'Stella '+(i+1));
+    b.setAttribute('aria-pressed', lit.has(i) ? 'true' : 'false');
+    b.innerHTML = '<i></i>';
+    b.addEventListener('click', () => light(i));
+    field2.appendChild(b);
+    return b;
+  });
+  function save(){ try{ localStorage.setItem('atelier-stelle', JSON.stringify([...lit])); }catch(e){} }
+  function renderProgress(){
+    const pr = $('progress');
+    pr.innerHTML = POS.map((_,i) => `<i class="${lit.has(i)?'on':''}"></i>`).join('') +
+      `<span style="margin-left:8px">${lit.size} di 11 accese</span>` +
+      (lit.size ? '<button class="reset" type="button" id="reset-stars">Spegni tutte</button>' : '');
+    const r = $('reset-stars');
+    if(r) r.addEventListener('click', () => { lit.clear(); btns.forEach(b => b.setAttribute('aria-pressed','false')); save(); renderProgress(); drawField();
+      $('rv-n').textContent = '0'; $('rv-w').textContent = 'Il cielo è ancora spento'; $('rv-t').textContent = 'Tocca un punto luminoso per cominciare.'; });
+  }
+  function light(i){
+    lit.add(i); btns[i].setAttribute('aria-pressed','true'); save();
+    $('rv-n').textContent = lit.size;
+    if(lit.size === 11){
+      $('rv-w').textContent = 'Il cielo è completo';
+      $('rv-t').textContent = WORDS[i][0] + ': ' + WORDS[i][1] + ' Ora le conoscete tutte. Ci vediamo mercoledì 25 alle 15:00.';
+    } else {
+      $('rv-w').textContent = WORDS[i][0];
+      $('rv-t').textContent = WORDS[i][1];
+    }
+    renderProgress(); drawField();
+  }
+  function drawField(){
+    const r = field2.getBoundingClientRect(), d = Math.min(window.devicePixelRatio||1,2);
+    fcv.width = r.width*d; fcv.height = r.height*d;
+    fctx.setTransform(d,0,0,d,0,0);
+    const w = r.width, h = r.height;
+    // painterly swirl strokes as background
+    fctx.lineCap = 'round';
+    let seed = 7; const rnd = () => (seed = (seed*16807)%2147483647)/2147483647;
+    for(let k=0;k<420;k++){
+      let x = rnd()*w, y = rnd()*h;
+      fctx.strokeStyle = BLUES[(rnd()*BLUES.length)|0]; fctx.globalAlpha = .35; fctx.lineWidth = 2+rnd()*2;
+      fctx.beginPath(); fctx.moveTo(x,y);
+      for(let j=0;j<10;j++){
+        const a = Math.sin(x*0.01)+Math.cos(y*0.014)+ (Math.hypot(x-w*.45,y-h*.45)<h*.35 ? Math.atan2(y-h*.45,x-w*.45)+Math.PI/2 : 0);
+        x += Math.cos(a)*5; y += Math.sin(a)*5; fctx.lineTo(x,y);
+      }
+      fctx.stroke();
+    }
+    // constellation lines between lit stars, in lighting order
+    const order = [...lit];
+    fctx.globalAlpha = .7; fctx.strokeStyle = '#f4cd4f'; fctx.lineWidth = 1.4; fctx.setLineDash([3,6]);
+    fctx.beginPath();
+    order.forEach((i,n) => { const x = POS[i][0]/100*w, y = POS[i][1]/100*h; n ? fctx.lineTo(x,y) : fctx.moveTo(x,y); });
+    fctx.stroke(); fctx.setLineDash([]); fctx.globalAlpha = 1;
+  }
+  renderProgress(); drawField();
+  if(lit.size){ $('rv-n').textContent = lit.size; $('rv-w').textContent = 'Bentornata'; $('rv-t').textContent = 'Le stelle che avevi acceso sono ancora lì.'; }
+  let rf; window.addEventListener('resize', () => { clearTimeout(rf); rf = setTimeout(drawField, 150); });
+
+  /* ---------------- checklist ---------------- */
+  const boxes = [...document.querySelectorAll('#bag input')];
+  let saved = {};
+  try{ saved = JSON.parse(localStorage.getItem('atelier-materiale')||'{}'); }catch(e){}
+  function countBag(){ $('bag-count').textContent = boxes.filter(b => b.checked).length + ' su ' + boxes.length + ' pronti' + (boxes.every(b=>b.checked) ? ': tutto pronto per l\'atelier!' : ''); }
+  boxes.forEach(b => {
+    if(saved[b.id]) b.checked = true;
+    b.addEventListener('change', () => { saved[b.id] = b.checked; try{ localStorage.setItem('atelier-materiale', JSON.stringify(saved)); }catch(e){} countBag(); });
+  });
+  countBag();
+})();
+</script>
+
+</body>
+</html>
